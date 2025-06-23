@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: Outfit;
+}
+
+.active hr {
+    @apply block
+}
+
+@media (max-width:740px) {
+    .active  p{
+       @apply text-white bg-primary
+    }
+}
+
+::-webkit-scrollbar {
+    @apply hidden
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+.slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.button-animate {
+  transition: transform 0.15s cubic-bezier(0.4,0,0.2,1), box-shadow 0.15s;
+}
+.button-animate:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 8px rgba(95,111,255,0.08);
+}
+
+/* Remove aurora background styles */
+
+.svg-bg-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+}
