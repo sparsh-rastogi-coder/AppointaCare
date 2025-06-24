@@ -238,6 +238,7 @@ const listAppointment = async (req, res) => {
 
 // API to make payment of appointment using razorpay
 const paymentRazorpay = async (req, res) => {
+        console.log("loda");
     try {
 
         const { appointmentId } = req.body
