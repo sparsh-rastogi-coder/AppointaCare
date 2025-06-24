@@ -86,6 +86,7 @@ const MyAppointments = () => {
 
     // Function to make payment using razorpay
     const appointmentRazorpay = async (appointmentId) => {
+        console.log(appointmentId)
         try {
             const { data } = await axios.post(backendUrl + '/api/user/payment-razorpay', { appointmentId }, { headers: { token } })
             if (data.success) {
