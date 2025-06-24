@@ -1,4 +1,17 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
+  "scripts": {
+    "build": "chmod +x node_modules/.bin/vite && vite build"
+  },
   "rewrites": [
     {
       "source": "/(.*)",
