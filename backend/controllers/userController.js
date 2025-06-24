@@ -243,7 +243,8 @@ const paymentRazorpay = async (req, res) => {
 
         const { appointmentId } = req.body
         const appointmentData = await appointmentModel.findById(appointmentId)
-
+        console.log(appointmentId)
+        console.log(appointmentData)
         if (!appointmentData || appointmentData.cancelled) {
             return res.json({ success: false, message: 'Appointment Cancelled or not found' })
         }
@@ -271,7 +272,7 @@ const verifyRazorpay = async (req, res) => {
     try {
         const { razorpay_order_id } = req.body
         const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
-
+        
         if (orderInfo.status === 'paid') {
             await appointmentModel.findByIdAndUpdate(orderInfo.receipt, { payment: true })
             res.json({ success: true, message: "Payment Successful" })
