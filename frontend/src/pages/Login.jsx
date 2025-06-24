@@ -25,7 +25,8 @@ const Login = () => {
         { name, email, password },
         { withCredentials: true } // ✅ Add this
       );
-
+      console.log("✅ Response:", data);
+      console.log("✅ Responsek:", beckendUrl);
       if (data.success) {
         localStorage.setItem('token', data.token)
         setToken(data.token)
