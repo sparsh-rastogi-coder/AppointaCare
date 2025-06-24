@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "postinstall": "chmod +x node_modules/.bin/vite",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+  "dev": "vite",
+  "prebuild": "chmod +x node_modules/.bin/vite",
+  "build": "vite build",
+  "lint": "...",
+  "preview": "vite preview"
   },
+
   "dependencies": {
     "axios": "^1.7.2",
     "jspdf": "^3.0.1",
