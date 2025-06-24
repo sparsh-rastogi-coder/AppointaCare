@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import HealthMetricsForm from '../components/HealthTracker/HealthMetricsForm';
 import HealthMetricsChart from '../components/HealthTracker/HealthMetricsChart';
 import ExportPDFButton from '../components/HealthTracker/ExportPDFButton';
+import { AppContext } from '../context/AppContext'
 
 const HealthTracker = () => {
     const [entries, setEntries] = useState([]);
@@ -16,6 +17,7 @@ const HealthTracker = () => {
     const [selectedDoctor, setSelectedDoctor] = useState('');
     const [loadingDoctors, setLoadingDoctors] = useState(false);
     const navigate = useNavigate();
+    const {backendUrl}=useContext(AppContext);
 
     useEffect(() => {
         fetchEntries();
@@ -23,7 +25,7 @@ const HealthTracker = () => {
 
     const fetchEntries = async () => {
         try {
-            const response = await fetch('/api/health-tracker', {
+            const response = await fetch(backendUrl+'/api/health-tracker', {
                 headers: {
                     'token': localStorage.getItem('token')
                 }
@@ -45,7 +47,7 @@ const HealthTracker = () => {
 
     const handleSubmit = async (formData) => {
         try {
-            const response = await fetch('/api/health-tracker', {
+            const response = await fetch(backendUrl+'/api/health-tracker', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -71,7 +73,7 @@ const HealthTracker = () => {
 
     const handleShare = async (entryId, doctorId) => {
         try {
-            const response = await fetch(`/api/health-tracker/${entryId}/share`, {
+            const response = await fetch(backendUrl+`/api/health-tracker/${entryId}/share`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
