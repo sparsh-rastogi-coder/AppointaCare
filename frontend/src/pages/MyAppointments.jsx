@@ -89,6 +89,7 @@ const MyAppointments = () => {
         console.log(appointmentId)
         try {
             const { data } = await axios.post(backendUrl + '/api/user/payment-razorpay', { appointmentId }, { headers: { token } })
+            console.log(data);
             if (data.success) {
                 initPay(data.order)
             }else{
