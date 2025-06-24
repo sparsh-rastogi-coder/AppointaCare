@@ -19,12 +19,24 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
+const allowedOrigins = [
+  'https://appointa-care-exze.vercel.app',   // ✅ uses credentials
+  'https://appointa-care-admin.vercel.app'   // ✅ no credentials
+];
+
 app.use(
   cors({
-    origin: 'https://appointa-care-exze.vercel.app', // ✅ frontend URL
-    credentials: true, // include this if using cookies/auth
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true // ✅ necessary for the frontend site that uses cookies/auth headers
   })
 );
+
 
 // api endpoints
 app.use("/api/user", userRouter)
