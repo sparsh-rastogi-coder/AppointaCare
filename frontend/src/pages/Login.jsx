@@ -19,7 +19,7 @@ const Login = () => {
     event.preventDefault();
 
     if (state === 'Sign Up') {
-
+      console.log("🟢 Attempting signup");
       const { data } = await axios.post(
         backendUrl + '/api/user/register',
         { name, email, password },
