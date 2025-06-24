@@ -99,7 +99,7 @@ const HealthTracker = () => {
     const handleDelete = async (entryId) => {
         if (!window.confirm('Are you sure you want to delete this entry?')) return;
         try {
-            const response = await fetch(`/api/health-tracker/${entryId}`, {
+            const response = await fetch(backendUrl+`/api/health-tracker/${entryId}`, {
                 method: 'DELETE',
                 headers: {
                     'token': localStorage.getItem('token')
@@ -126,7 +126,7 @@ const HealthTracker = () => {
     const handleFormSubmit = async (formData) => {
         if (editEntry) {
             try {
-                const response = await fetch(`/api/health-tracker/${editEntry._id}`, {
+                const response = await fetch(backendUrl+`/api/health-tracker/${editEntry._id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ const HealthTracker = () => {
         setSelectedDoctor('');
         setLoadingDoctors(true);
         try {
-            const response = await fetch('/api/user/my-future-doctors', {
+            const response = await fetch(backendUrl+'/api/user/my-future-doctors', {
                 headers: { 'token': localStorage.getItem('token') }
             });
             const data = await response.json();
@@ -192,7 +192,7 @@ const HealthTracker = () => {
             return;
         }
         try {
-            const response = await fetch(`/api/health-tracker/${shareEntryId}/share`, {
+            const response = await fetch(backendUrl+`/api/health-tracker/${shareEntryId}/share`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
