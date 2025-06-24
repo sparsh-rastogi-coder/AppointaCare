@@ -13,7 +13,7 @@ dotenv.config();
 const stripeInstance = new stripe(process.env.STRIPE_SECRET_KEY)
 const razorpayInstance = new razorpay({
     key_id: process.env.RAZORPAY_API_KEY,
-    key_secret: process.env.VITE_RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_SECRET,
 })
 
 // API to register user
