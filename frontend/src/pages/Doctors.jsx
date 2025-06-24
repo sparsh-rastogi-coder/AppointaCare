@@ -5,12 +5,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 const Doctors = () => {
 
   const { speciality } = useParams()
-
+  console.log(speciality);
   const [filterDoc, setFilterDoc] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const navigate = useNavigate();
+  console.log(filterDoc);
 
   const { doctors } = useContext(AppContext)
+  console.log(doctors);
 
   const applyFilter = () => {
     if (speciality) {
@@ -19,7 +21,7 @@ const Doctors = () => {
       setFilterDoc(doctors)
     }
   }
-
+  console.log(doctors);
   useEffect(() => {
     applyFilter()
   }, [doctors, speciality])
