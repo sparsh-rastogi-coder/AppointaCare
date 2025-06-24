@@ -21,7 +21,7 @@ connectCloudinary()
 app.use(express.json())
 app.use(
   cors({
-    origin: 'https://appointa-care-5fl1.vercel.app', // ✅ frontend URL
+    origin: 'https://appointa-care-exze.vercel.app', // ✅ frontend URL
     credentials: true, // include this if using cookies/auth
   })
 );
