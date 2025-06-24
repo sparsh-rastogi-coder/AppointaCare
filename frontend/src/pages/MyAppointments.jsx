@@ -56,6 +56,7 @@ const MyAppointments = () => {
     }
 
     const initPay = (order) => {
+        console.log(import.meta.env.VITE_RAZORPAY_KEY_ID)
         const options = {
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
             amount: order.amount,
