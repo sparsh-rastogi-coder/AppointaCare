@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 // user authentication middleware
 const authUser = async (req, res, next) => {
-        console.log("loda lelo")
+        
 
     const { token } = req.headers
     if (!token) {

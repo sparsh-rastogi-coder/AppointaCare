@@ -18,7 +18,6 @@ const DoctorSharedHealthEntries = () => {
       try {
         const response = await fetch(backendUrl +'/api/health-tracker/shared/entries', {headers: { dtoken: dToken }});
         const data = await response.json();
-        // console.log(data);
         if (data.success) {
           setEntries(data.data);
           // Initialize feedbacks state with existing feedbacks if present

@@ -56,7 +56,7 @@ const MyAppointments = () => {
     }
 
     const initPay = (order) => {
-        console.log(import.meta.env.VITE_RAZORPAY_KEY_ID)
+        
         const options = {
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
             amount: order.amount,
@@ -67,7 +67,7 @@ const MyAppointments = () => {
             receipt: order.receipt,
             handler: async (response) => {
 
-                console.log(response)
+                
 
                 try {
                     const { data } = await axios.post(backendUrl + "/api/user/verifyRazorpay", response, { headers: { token } });
@@ -87,7 +87,7 @@ const MyAppointments = () => {
 
     // Function to make payment using razorpay
     const appointmentRazorpay = async (appointmentId) => {
-        console.log(appointmentId)
+        
         try {
             const { data } = await axios.post(backendUrl + '/api/user/payment-razorpay', { appointmentId }, { headers: { token } })
             console.log(data);

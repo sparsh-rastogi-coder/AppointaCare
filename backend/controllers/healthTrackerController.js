@@ -113,7 +113,6 @@ export const deleteHealthEntry = asyncHandler(async (req, res, next) => {
 // @access  Private (User)
 export const shareWithDoctor = asyncHandler(async (req, res, next) => {
     const { doctorId } = req.body;
-    console.log(doctorId);
     // Check if doctor exists
     const doctor_val = await doctor.findById(doctorId);
     if (!doctor_val) {
@@ -153,7 +152,6 @@ export const getSharedEntries = asyncHandler(async (req, res, next) => {
     })
     .populate('userId', 'firstName lastName email')
     .sort('-date');
-    // console.log(entries);
     res.status(200).json({
         success: true,
         count: entries.length,

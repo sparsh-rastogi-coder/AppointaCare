@@ -238,13 +238,11 @@ const listAppointment = async (req, res) => {
 
 // API to make payment of appointment using razorpay
 const paymentRazorpay = async (req, res) => {
-        console.log("loda");
     try {
 
         const { appointmentId } = req.body
         const appointmentData = await appointmentModel.findById(appointmentId)
-        console.log(appointmentId)
-        console.log(appointmentData)
+        
         if (!appointmentData || appointmentData.cancelled) {
             return res.json({ success: false, message: 'Appointment Cancelled or not found' })
         }
