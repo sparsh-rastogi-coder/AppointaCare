@@ -18,7 +18,7 @@ const razorpayInstance = new razorpay({
 
 // API to register user
 const registerUser = async (req, res) => {
-
+    console.log("📥 [POST /api/user/register] Request body:", req.body);
     try {
         const { name, email, password } = req.body;
 
