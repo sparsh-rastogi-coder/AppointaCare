@@ -20,7 +20,7 @@ const App = () => {
 
   const { dToken } = useContext(DoctorContext)
   const { aToken } = useContext(AdminContext)
-
+  console.log(dToken)
   return dToken || aToken ? (
     <div className='bg-[#F8F9FD]'>
       <ToastContainer />
