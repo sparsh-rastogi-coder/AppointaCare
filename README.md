@@ -148,16 +148,17 @@ To set up and run this project locally:
 
    - Create a `.env` file in the root directory and add the following:
      ```env
-     MONGO_URI='mongodb://127.0.0.1:27017/appointacare'
+     MONGO_URI='mongodb://127.0.0.1:27017/appointacare'// CAN BE REPLACED WITH MONGO_URI
      VITE_BACKEND_URL='http://localhost:4000'
      VITE_CURRENCY='Rs'
      JWT_SECRET
      STRIPE_API_KEY
      STRIPE_SECRET_KEY
      RAZORPAY_API_KEY
+     VITE_RAZORPAY_KEY_ID
+     RAZORPAY_SECRET
      ADMIN_EMAIL
      ADMIN_PASSWORD
-     VITE_RAZORPAY_KEY_ID
      cloud_name
      api_key //for cloudinary
      api_secret  //for cloudinary
