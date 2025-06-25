@@ -1,7 +1,13 @@
 # AppointaCare  - Doctor Appointment Web App
 
 **AppointaCare ** is a full-stack web application designed to make healthcare more accessible by simplifying the process of booking doctor appointments. It offers three levels of login: **Patient**, **Doctor**, and **Admin**, each with distinct features tailored to their roles. The app integrates **online payment gateways (Stripe and Razorpay)** to facilitate seamless and secure payments. Built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js), AppointaCare  provides an efficient, user-friendly experience for both patients and healthcare providers.
+## 🌐 Deployed Applications
 
+| Live URL | Description |
+|----------|-------------|
+| **Patient Front-End** | https://appointa-care-exze.vercel.app |
+| **Admin Dashboard**  | https://appointa-care-admin.vercel.app |
+| **Back-End (API base)** | https://appointa-care.vercel.app |
 ## 🛠️ Tech Stack
 
 - **Frontend**: React.js
