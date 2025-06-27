@@ -10,15 +10,14 @@ export default {
         'auto':'repeat(auto-fill, minmax(200px, 1fr))'
       },
       colors:{
-        'primary':'#5F6FFF',
-        'secondary': '#FFB86F',
-        'accent': '#43E6B0',
-        'danger': '#FF5F56',
-        'info': '#5FD0FF',
-        'success': '#43E67E',
-        'neutral': '#F5F7FA',
-        'dark': '#232946',
-        'gray-text': '#6B7280',
+        primary: '#4F8CFF', // Blue
+        secondary: '#6366F1', // Indigo
+        accent: '#2DD4BF', // Teal
+        background: '#F8FAFC', // Light Gray
+        surface: '#FFFFFF', // White
+        'text-primary': '#1E293B', // Blue-Gray
+        'text-secondary': '#64748B', // Blue-Gray
+        error: '#EF4444', // Red
       }
     },
   },
