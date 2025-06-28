@@ -26,6 +26,9 @@ const Navbar = () => {
         <NavLink to='/doctors' className={({ isActive }) => isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-text-secondary hover:text-primary transition'}>
           <li>ALL DOCTORS</li>
         </NavLink>
+        <NavLink to='/ai-doctor' className={({ isActive }) => isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-text-secondary hover:text-primary transition'}>
+          <li>AI DOCTOR</li>
+        </NavLink>
         <NavLink to='/about' className={({ isActive }) => isActive ? 'text-primary border-b-2 border-primary pb-1' : 'text-text-secondary hover:text-primary transition'}>
           <li>ABOUT</li>
         </NavLink>
@@ -45,6 +48,7 @@ const Navbar = () => {
                   <p onClick={() => navigate('/my-profile')} className='hover:text-primary cursor-pointer transition'>My Profile</p>
                   <p onClick={() => navigate('/my-appointments')} className='hover:text-primary cursor-pointer transition'>My Appointments</p>
                   <p onClick={() => navigate('/health-tracker')} className='hover:text-primary cursor-pointer transition'>Health Tracker</p>
+                  <p onClick={() => navigate('/ai-doctor')} className='hover:text-primary cursor-pointer transition'>AI Doctor</p>
                   <p onClick={logout} className='hover:text-error cursor-pointer transition'>Logout</p>
                 </div>
               </div>
@@ -65,6 +69,7 @@ const Navbar = () => {
           <ul className='flex flex-col gap-2 mt-7 px-6 text-lg font-semibold'>
             <NavLink onClick={() => setShowMenu(false)} to='/' className={({ isActive }) => isActive ? 'text-primary' : 'text-text-secondary hover:text-primary transition'}><p className='px-4 py-3 rounded hover:bg-background transition'>HOME</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/doctors' className={({ isActive }) => isActive ? 'text-primary' : 'text-text-secondary hover:text-primary transition'}><p className='px-4 py-3 rounded hover:bg-background transition'>ALL DOCTORS</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/ai-doctor' className={({ isActive }) => isActive ? 'text-primary' : 'text-text-secondary hover:text-primary transition'}><p className='px-4 py-3 rounded hover:bg-background transition'>AI DOCTOR</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/about' className={({ isActive }) => isActive ? 'text-primary' : 'text-text-secondary hover:text-primary transition'}><p className='px-4 py-3 rounded hover:bg-background transition'>ABOUT</p></NavLink>
             <NavLink onClick={() => setShowMenu(false)} to='/contact' className={({ isActive }) => isActive ? 'text-primary' : 'text-text-secondary hover:text-primary transition'}><p className='px-4 py-3 rounded hover:bg-background transition'>CONTACT</p></NavLink>
             {token && userData && <>
@@ -72,6 +77,7 @@ const Navbar = () => {
               <p onClick={() => { setShowMenu(false); navigate('/my-profile'); }} className='px-4 py-3 rounded hover:bg-background transition cursor-pointer'>My Profile</p>
               <p onClick={() => { setShowMenu(false); navigate('/my-appointments'); }} className='px-4 py-3 rounded hover:bg-background transition cursor-pointer'>My Appointments</p>
               <p onClick={() => { setShowMenu(false); navigate('/health-tracker'); }} className='px-4 py-3 rounded hover:bg-background transition cursor-pointer'>Health Tracker</p>
+              <p onClick={() => { setShowMenu(false); navigate('/ai-doctor'); }} className='px-4 py-3 rounded hover:bg-background transition cursor-pointer'>AI Doctor</p>
               <p onClick={() => { setShowMenu(false); logout(); }} className='px-4 py-3 rounded hover:bg-error hover:text-white transition cursor-pointer'>Logout</p>
             </>}
             {!token && <button onClick={() => { setShowMenu(false); navigate('/login'); }} className='bg-primary text-white px-8 py-3 rounded-full font-semibold mt-4 shadow-md hover:bg-secondary transition'>Create account</button>}

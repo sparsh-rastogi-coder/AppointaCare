@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 import { Toaster } from 'react-hot-toast'
 import Verify from './pages/Verify'
 import HealthTracker from './pages/HealthTracker'
+import AIDoctor from './pages/AIDoctor'
 
 const App = () => {
   return (
@@ -56,6 +57,7 @@ const App = () => {
           <Route path='/my-appointments' element={<MyAppointments />} />
           <Route path='/my-profile' element={<MyProfile />} />
           <Route path='/health-tracker' element={<HealthTracker />} />
+          <Route path='/ai-doctor' element={<AIDoctor />} />
           <Route path='/verify' element={<Verify />} />
         </Routes>
         <Footer />

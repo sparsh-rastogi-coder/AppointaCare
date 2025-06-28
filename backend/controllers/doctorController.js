@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import doctorModel from "../models/doctorModel.js";
+import aiDoctorModel from "../models/aiDoctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 import dotenv from 'dotenv';
 dotenv.config();
@@ -92,8 +93,15 @@ const appointmentComplete = async (req, res) => {
 // API to get all doctors list for Frontend
 const doctorList = async (req, res) => {
     try {
-
-        const doctors = await doctorModel.find({}).select(['-password', '-email'])
+        // Get regular doctors
+        const regularDoctors = await doctorModel.find({}).select(['-password', '-email'])
+        
+        // Get AI doctors
+        const aiDoctors = await aiDoctorModel.find({}).select(['-password', '-email'])
+        
+        // Combine both lists
+        const doctors = [...regularDoctors, ...aiDoctors]
+        
         res.json({ success: true, doctors })
 
     } catch (error) {
