@@ -112,7 +112,6 @@
 ## 💳 Payment Integration
 
 - Supports multiple payment methods:
-  - **Cash Payment**
   - **Stripe Integration**
   - **Razorpay Integration**
 - Ensures a secure and smooth payment experience for users.
