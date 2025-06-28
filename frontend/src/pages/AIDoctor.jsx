@@ -4,7 +4,7 @@ import AIDoctorChat from '../components/AIDoctorChat';
 import { toast } from 'react-toastify';
 
 const AIDoctor = () => {
-    const { token, user } = useContext(AppContext);
+    const { token, userData } = useContext(AppContext);
     const [activeTab, setActiveTab] = useState('chat');
 
     const healthTopics = [
@@ -170,7 +170,7 @@ const AIDoctor = () => {
                                 </div>
                             </div>
 
-                            {!token || !user ? (
+                            {!token || !userData ? (
                                 <div className="text-center py-12">
                                     <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                         <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -36,17 +36,21 @@ const AppContextProvider = (props) => {
     const loadUserProfileData = async () => {
 
         try {
-
+            console.log('Loading user profile with token:', !!token);
             const { data } = await axios.get(backendUrl + '/api/user/get-profile', { headers: { token } })
+
+            console.log('User profile response:', data);
 
             if (data.success) {
                 setUserData(data.userData)
+                console.log('User data set successfully:', data.userData);
             } else {
+                console.log('Failed to load user profile:', data.message);
                 toast.error(data.message)
             }
 
         } catch (error) {
-            console.log(error)
+            console.log('Error loading user profile:', error)
             toast.error(error.message)
         }
 
@@ -57,8 +61,12 @@ const AppContextProvider = (props) => {
     }, [])
 
     useEffect(() => {
+        console.log('Token changed:', !!token);
         if (token) {
             loadUserProfileData()
+        } else {
+            console.log('No token, setting userData to false');
+            setUserData(false)
         }
     }, [token])
 

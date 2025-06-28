@@ -4,13 +4,18 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const AIDoctorChat = () => {
-    const { backendUrl, token, user } = useContext(AppContext);
+    const { backendUrl, token, userData } = useContext(AppContext);
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
     const [sessionId, setSessionId] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef(null);
+
+    // Debug logging
+    useEffect(() => {
+        console.log('AIDoctorChat Debug:', { token: !!token, userData: !!userData, userDataValue: userData });
+    }, [token, userData]);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -21,19 +26,23 @@ const AIDoctorChat = () => {
     }, [messages]);
 
     useEffect(() => {
-        if (token && user) {
+        if (token && userData) {
+            console.log('Starting consultation with:', { token: !!token, userId: userData._id });
             startNewConsultation();
         }
-    }, [token, user]);
+    }, [token, userData]);
 
     const startNewConsultation = async () => {
         try {
             setIsLoading(true);
+            console.log('Making API call to start consultation');
             const { data } = await axios.post(
                 `${backendUrl}/api/ai-doctor/start-consultation`,
-                { userId: user._id },
+                { userId: userData._id },
                 { headers: { token } }
             );
+
+            console.log('Consultation response:', data);
 
             if (data.success) {
                 setSessionId(data.sessionId);
@@ -69,7 +78,7 @@ const AIDoctorChat = () => {
                 {
                     sessionId,
                     message: newMessage,
-                    userId: user._id
+                    userId: userData._id
                 },
                 { headers: { token } }
             );
@@ -127,7 +136,8 @@ const AIDoctorChat = () => {
         );
     };
 
-    if (!token || !user) {
+    if (!token || !userData) {
+        console.log('Rendering login prompt because:', { token: !!token, userData: !!userData });
         return (
             <div className="flex items-center justify-center h-64">
                 <div className="text-center">
