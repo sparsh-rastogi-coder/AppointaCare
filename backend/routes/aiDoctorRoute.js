@@ -7,7 +7,7 @@ import {
     getChatSession,
     endConsultation
 } from "../controllers/aiDoctorController.js";
-import { authUser } from "../middleware/authUser.js";
+import authUser from '../middleware/authUser.js';
 
 const aiDoctorRouter = express.Router();
 
